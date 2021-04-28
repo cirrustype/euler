@@ -23,29 +23,46 @@ Created on Mon Apr 19 16:55:35 2021
 
 
 
-#import numpy as np
+import numpy as np
 
-fib = [1,1]
+
+
+
+def fibbs (x):
+    spiral = [0,1]
+    
+    for i in range(2,x+1):
+        new = spiral[i-1] + spiral[i-2]
+        
+        spiral.append(new)
+    return spiral
+
+test = fibbs(10)
+print(test)
+
+print(fibbs(50))
+
+
+
+seq = np.asarray(fibbs(50))
 even = []
 odd = []
-m=1000
-for i in range(2,m):
-    fib.append((i-1)+(i-2))
+
+for i in range(0,50):
+    if seq[i] <= 4000000:
+        if seq[i]%2 == 0:
+            even.append(seq[i])
+        else:
+            odd.append(seq[i])
     
-    if fib[i]%2 == 0:
-        even.append(fib[i])
     else:
-        odd.append(fib[i])
+        break
+        
+print(odd)
     
-print(fib)
+sum(odd)
 
-
-
-
-
-
-
-
+     
 
 
 
